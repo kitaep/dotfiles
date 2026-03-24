@@ -25,7 +25,7 @@ ZSH_THEME=""
 
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-# zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
@@ -72,9 +72,6 @@ ZSH_THEME=""
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git asdf zsh-autosuggestions fast-syntax-highlighting)
 
-# zsh auto update
-zstyle ':omz:update' mode auto
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -105,6 +102,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias claude="claude --model opusplan --dangerously-skip-permissions"
 
 # This speeds up pasting w/ autosuggest
 # https://github.com/zsh-users/zsh-autosuggestions/issues/238
@@ -134,15 +132,8 @@ export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$PATH"
 export GOPATH=$HOME/.go
 export PATH=$PATH:$GOPATH/bin
 
-
-
-[[ "$TERM_PROGRAM" == "kiro" ]] && . "$(kiro --locate-shell-integration-path zsh)"
-
 # Added by Antigravity
 export PATH="/Users/kitae/.antigravity/antigravity/bin:$PATH"
 
 # adb
 export PATH="$PATH:/Users/kitae/Library/Android/sdk/platform-tools/"
-
-# claude
-alias claude="claude --model opusplan --dangerously-skip-permissions"
